@@ -1,0 +1,5 @@
+select store_id,
+count(case when REPLACE(REPLACE(REPLACE(LOWER(product_1), '-', ''), '_', ''), ' ', '') like 'apple%' then 1 end) as product_11,
+count(case when REPLACE(REPLACE(REPLACE(LOWER(product_2), '-', ''), '_', ''), ' ', '') like 'apple%' then 1 end) as product_12
+from product_demo
+group by store_id

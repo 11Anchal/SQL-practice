@@ -1,3 +1,21 @@
+## query
+create table product_demo
+(
+	store_id	int,
+	product_1	varchar(50),
+	product_2	varchar(50)
+);
+insert into product_demo values (1, 'Apple - IPhone', '   Apple - MacBook Pro');
+insert into product_demo values (1, 'Apple - AirPods', 'Samsung - Galaxy Phone');
+insert into product_demo values (2, 'Apple_IPhone', 'Apple: Phone');
+insert into product_demo values (2, 'Google Pixel', ' apple: Laptop');
+insert into product_demo values (2, 'Sony: Camera', 'Apple Vision Pro');
+insert into product_demo values (3, 'samsung - Galaxy Phone', 'mapple MacBook Pro');
+
+select * from product_demo;
+
+##solution
+
 select store_id,
 count(case when REPLACE(REPLACE(REPLACE(LOWER(product_1), '-', ''), '_', ''), ' ', '') like 'apple%' then 1 end) as product_11,
 count(case when REPLACE(REPLACE(REPLACE(LOWER(product_2), '-', ''), '_', ''), ' ', '') like 'apple%' then 1 end) as product_12
